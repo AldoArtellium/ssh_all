@@ -1,0 +1,20 @@
+- hosts: all
+  order: sorted
+  gather_facts: False
+  tasks:
+    - name: install "xdpyinfo awk bc & xdotool" package
+      sudo: yes
+      apt:
+        name: xdpyinfo
+        update_cache: yes
+      apt:
+        name: awk
+      apt:
+        name: bc
+      apt:
+        name: xdotool
+
+    - name: exec script mousecircle
+      sudo: no
+      script: /home/aldo/Documents/SelfProg/mousecircle.sh
+
